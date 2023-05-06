@@ -3,6 +3,14 @@ services:
   web:
     build: .
     ports:
-      - "5000:5000"
+      - "5166:5000"
+    networks:
+      - qyt-net
   redis:
     image: "redis:alpine"
+    networks:
+      - qyt-net
+
+networks:
+  qyt-net:
+    driver: bridge
